@@ -55,7 +55,13 @@ var outputMovie = function(array) {
     elSearchResultParent.appendChild(elSearchResultCount);
   }
   elOutputList.appendChild(movieItemFragment);
+}
 
+
+var clearInputs = function() {
+  elTitleInput.value = '';
+  elRatingInput.value = '';
+  elGenreSelect.value = 'All';
 }
 
 
@@ -86,4 +92,5 @@ elForm.addEventListener('submit', function(evt) {
     return movie.title.toString().match(newInputValue) && movie.imdb_rating >= Number(elRatingInput.value) && isAll;
   });
   outputMovie(newTitleArr);
+  clearInputs();
 });
